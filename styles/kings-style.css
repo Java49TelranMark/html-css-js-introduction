@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+}
+.logo {
+    font-size: 3em;
+    background-color: bisque;
+    display: block;
+    text-align: center;
+}
+.main-class {
+
+}
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.details-image {
+    width: 70vw;
+    height: 60vw;
+    border-radius: 25%;
+}
+.details-title {
+    display: block;
+}
+.thumbnails-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 25vh;
+    overflow-y: auto;
+    justify-content: space-around;
+    padding-left: 0;
+}
+.thumbnails-item {
+    width: 40vw;
+    height: 51vw;
+    margin-top: 2.5vh;
+    border: solid 1px black;
+    border-radius: 25%;
+}
+.thumbnails-image {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 25%;
+}
+.thumbnails-title {
+    display: block;
+    text-align: center;
+    height: 10vw;
+}
+.thumbanils-anchor {
+    text-decoration: none;
+}

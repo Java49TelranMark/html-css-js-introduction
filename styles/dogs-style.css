@@ -44,6 +44,7 @@ body {
 .thumbnails-image {
     width: 20vw;
     height: 15vw;
+    display: block;
 }
 .thumbnails-title {
     display: block;

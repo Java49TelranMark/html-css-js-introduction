@@ -12,7 +12,7 @@
 
 :root {
     --thumbnails-img-width: 20vw;
-    --thumbnails-img-height: 15vw;
+    --thumbnails-img-height: 30vw;
     --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
 }
 
@@ -30,7 +30,7 @@ body {
 
 .logo {
     font-size: 2em;
-    background-color: bisque;
+    background-color: beige;
     display: block;
     text-align: center;
     font-family: lakeshore;
@@ -57,9 +57,9 @@ body {
 }
 
 .details-image {
-    width: 90vw;
-    height: 70vw;
-    border-radius: 25%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 5%;
 }
 
 .details-title {
@@ -100,6 +100,7 @@ body {
 }
 
 .thumbnails-title {
+    padding-top: 1vh;
     display: block;
     text-align: center;
     height: var(--thumbnails-title-height);
@@ -118,7 +119,7 @@ body {
 @media(min-width: 560px) {
     :root {
         --thumbnails-img-width: 12vw;
-        --thumbnails-img-height: 8vw;
+        --thumbnails-img-height: 14vw;
         --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.25)
     }
 
@@ -142,7 +143,7 @@ body {
 
     .details-image {
         width: 45vw;
-        height: 38vw;
+        height: 55vw;
     }
 
     .details-container {
@@ -165,12 +166,12 @@ body {
 
         .details-container {
             margin-top: 5vh;
-            margin-right: 5vw;
+            margin-right: 20vw;
         }
 
         .details-image {
-            width: 45vw;
-            height: 35vw;
+            width: 32vw;
+            height: 40vw;
         }
     }
 }

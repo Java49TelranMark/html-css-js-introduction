@@ -12,7 +12,7 @@
 
 :root {
     --thumbnails-img-width: 20vw;
-    --thumbnails-img-height: 30vw;
+    --thumbnails-img-height: 25vw;
     --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.33)
 }
 
@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1;
+    flex-grow: 3;
 }
 
 .details-container {
@@ -57,8 +57,8 @@ body {
 }
 
 .details-image {
-    width: 60vw;
-    height: 60vw;
+    width: 50vw;
+    height: 50vw;
     border-radius: 5%;
 }
 
@@ -68,7 +68,7 @@ body {
     font-style: italic;
     background-color: beige;
     position: absolute;
-    font-size: 2em;
+    font-size: 3em;
     left: 0;
     bottom: 2vh;
 }
@@ -89,8 +89,9 @@ body {
     min-height: calc(var(--thumbnails-img-height) + var(--thumbnails-title-height));
     margin-top: 2.5vh;
     border: solid 1px black;
-    border-radius: 25%;
+    border-radius: 15%;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .thumbnails-image {
@@ -122,17 +123,23 @@ body {
         --thumbnails-img-height: 14vw;
         --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.25)
     }
-
+    .main-class {
+        flex-grow: 1;
+        align-items: center;
+    }
     .logo {
         font-size: 1.8em;
     }
-
+    .details-title{
+        font-size: 2em;
+    }
     .thumbnails-list {
         flex-direction: column;
         flex-wrap: nowrap;
         max-height: 75vh;
         order: -1;
         justify-content: flex-start;
+        padding-right: 7vh;
     }
 
     .main-class {
@@ -154,6 +161,10 @@ body {
 
 
     @media (min-width: 900px) {
+        
+        .details-title{
+            font-size: 3em;
+        }
         .thumbnails-list {
             padding-right: 2vw;
             margin-top: 2.5vh;

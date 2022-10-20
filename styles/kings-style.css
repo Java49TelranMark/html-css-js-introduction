@@ -50,14 +50,18 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 10vh;
+    margin-right: 5vw;
 }
 
 .details-frame {
     position: relative;
+    border: solid 1px black;
+    border-radius: 5%;
+    overflow: hidden;
 }
 
 .details-image {
-    width: 50vw;
+    width: 40vw;
     height: 50vw;
     border-radius: 5%;
 }
@@ -120,7 +124,7 @@ body {
 @media(min-width: 560px) {
     :root {
         --thumbnails-img-width: 12vw;
-        --thumbnails-img-height: 14vw;
+        --thumbnails-img-height: 18vw;
         --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.25)
     }
     .main-class {
@@ -150,7 +154,7 @@ body {
 
     .details-image {
         width: 45vw;
-        height: 55vw;
+        height: 60vw;
     }
 
     .details-container {

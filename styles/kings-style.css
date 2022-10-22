@@ -52,12 +52,21 @@ body {
     margin-bottom: 10vh;
     margin-right: 5vw;
 }
+.hidden .details-container {
+    display: none;
+}
 
 .details-frame {
     position: relative;
     border: solid 1px black;
     border-radius: 5%;
     overflow: hidden;
+}
+.hide-button {
+    position: absolute;
+    top: 3vh;
+    right: 3vw;
+
 }
 
 .details-image {
@@ -86,6 +95,13 @@ body {
     overflow-y: auto;
     justify-content: space-around;
     padding-left: 0;
+}
+
+.hidden .thumbnails-list {
+    max-height: 80vh;
+    margin-bottom: 10vh;
+    flex-direction: column;
+    padding-left: 10vh;
 }
 
 .thumbnails-item {
@@ -128,8 +144,10 @@ body {
         --thumbnails-title-height: calc(var(--thumbnails-img-height)* 0.25)
     }
     .main-class {
+        flex-direction: row;
         flex-grow: 1;
         align-items: center;
+        justify-content: space-around;
     }
     .logo {
         font-size: 1.8em;
@@ -137,6 +155,7 @@ body {
     .details-title{
         font-size: 2em;
     }
+    
     .thumbnails-list {
         flex-direction: column;
         flex-wrap: nowrap;
@@ -145,13 +164,16 @@ body {
         justify-content: flex-start;
         padding-right: 7vh;
     }
-
-    .main-class {
+    
+    .hidden .thumbnails-list {
         flex-direction: row;
-        justify-content: space-around;
-
+        flex-wrap: wrap;
     }
-
+    .hidden .thumbnails-item  {
+        margin-right: 2vw;
+        min-width: var(--thumbnails-img-width);
+    }
+    
     .details-image {
         width: 45vw;
         height: 60vw;

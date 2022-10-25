@@ -87,10 +87,6 @@ body {
     bottom: 2vh;
 }
 
-.details-audio {
-    display: block;
-}
-
 .thumbnails-list {
     list-style: none;
     display: flex;
@@ -116,6 +112,10 @@ body {
     border-radius: 15%;
     overflow: hidden;
     cursor: pointer;
+    
+}
+.thumbnails-audio {
+    play:
 }
 
 .thumbnails-image {

@@ -14,6 +14,10 @@ function setDetails(anchor) {
     detailsTitle.innerHTML = anchor.getAttribute('data-details-title');
     detailsAudio.setAttribute('src', anchor.getAttribute('data-details-audio'));
     detailsAudio.play();
+    setTimeout(function(){
+        detailsAudio.pause();
+        detailsAudio.currentTime=0;
+    }, 4000)
 }
 for(let i = 0; i < anchors.length; i++) {
     anchors[i].addEventListener("click", function() {

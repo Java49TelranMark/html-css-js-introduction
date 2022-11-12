@@ -176,9 +176,7 @@
 //             sum = sum + digit;
 //             console.log(sum)
 //             arrayId[i] = digit;
-            
-//         }
-        
+//         }  
 
 //     }
 //     //console.log(arrayId)
@@ -246,6 +244,18 @@
 //     return value
 // }
 
+//****************************************Task 1 alternative
+
+// function ulSurround(strings){
+//     let res = strings.map(str => `<li>${str}</li>`)
+//     res.splice(0,0,"<ul>");
+//     res.push("</ul>");
+//     return res;
+// }
+// let ar = ["abc", "lmn", "cd"];
+// console.log(`input ${ar} output: ${ulSurround(ar)}`);
+
+
 //****************************************Task 2
 
 // let strings = ["abc", "lmn", "cd", "abc", "abc"];
@@ -259,6 +269,15 @@
 //         }
 //     console.log("count of '", string, "'=", counter); 
 // }
+
+//****************************************Task 2 alternative
+
+// let ar = ["abc", "lmn", "cd", "abc", "abc"];
+// function count(array, element){
+//     return array.reduce((res, cur) => cur == element ? res + 1 : res, 0);
+// }
+// let str = "abc";
+// console.log(count(ar, str));
 
 //****************************************Task 3
 
@@ -277,6 +296,20 @@
 //     return resArray;
 // }
 
+//****************************************Task 3 alternative
+
+// let arS = [1, 2, 3, 4, 5, 6, 7];
+// let arD = [10, 20, 30, 40, 50, 60, 70];
+
+// console.log (arrayCopy(arS, 3, arD, 4, 3));
+
+// function arrayCopy(src, srcPos, dst, dstPos, length){
+//     let arForCopy = src.slice(srcPos, srcPos+length);
+//     arForCopy.forEach((e, i) => dst.splice(dstPos + i, 0, e));
+    
+//     return resArray;
+// }
+
 //****************************************Task 4
 
 // let numbers = [1,2,3,4,5,6,7];
@@ -289,3 +322,14 @@
 //     array.splice(newIndex, 0, value);
 //     return array;
 // }
+
+//***************************clas work 12.11.2022
+
+// let arS = [1, 2, 3, 4, 5, 6, 7];
+
+// function getEvenNumbers(numbers){
+//     let res = numbers.filter(n => n % 2 == 0);
+//     return res;
+// }
+
+// console.log(getEvenNumbers(arS))

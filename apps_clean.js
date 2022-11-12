@@ -1,63 +1,54 @@
-//****************************************Task 1
+//******************Task 1
 
-// let ulSurround = ["abc", "lmn", "cd"];
+// let arS = [11, 2, 3, 4, 5, 6, 7, 10,20,-2,50,23];
 
-// console.log(surrScript(ulSurround));
+// console.log(minmax(arS));
 
-// function surrScript(array){
+// function minmax (array){
+//     let min = array[0];
+//     let max = array[0];
 //     for (let i = 0; i < array.length; i++){
-//      array[i] = addUi(array[i]);
-//      }
-//     array.push("</ul>");
-//     array.splice(0, 0, "<ul>");
-
-//      return array;
-// }
-// function addUi(value){
-//     value = "<li>"+value+"</li>";
-//     return value
+//          min > array[i] ? min = array[i] : min;
+//          max < array[i] ? max = array[i] : max;
+//     }
+//     let newAr = [min, max];
+//     return newAr;
 // }
 
-//****************************************Task 2
+//*********************Task 2
 
-// let strings = ["abc", "lmn", "cd", "abc", "abc"];
+// let array = ["abc", "old_abc", "abc_lmn", "123", "old_lmn", "old_123123"];
 
-// count(strings, "abc");
+// console.log(deleteWithPrefix(array, "abc"));
 
-// function count(array, string){
-//     let counter = 0;
-//     for (let i = 0; i < array.length; i++){
-//             array[i] == string ? counter++ :  counter = counter;        
-//         }
-//     console.log("count of '", string, "'=", counter); 
+// function deleteWithPrefix(array, string){
+//     let res = array.filter(str => string >= str);
+//     return res;
 // }
 
-//****************************************Task 3
+// //*********************Task 3
 
-// let arS = [1, 2, 3, 4, 5, 6, 7];
-// let arD = [10, 20, 30, 40, 50, 60, 70];
+let arS = [11, 2, 3, 4, 5, 6, 7, 10,20,-2,50,23];
 
-// console.log (arrayCopy(arS, 3, arD, 4, 3));
+console.log(getSorted(arS));
 
-// function arrayCopy(src, srcPos, dst, dstPos, length){
-//     let srcEndPos = srcPos + length;
-//     let srcSliced = src.slice(srcPos, srcEndPos);
-//     let dstSlicedBeg = dst.slice(0, dstPos);
-//     let dstSlicedEnd = dst.slice(dstPos, dst.length);
-//     let resArray = dstSlicedBeg.concat(srcSliced, dstSlicedEnd);
+function getSorted(array){
+    let evenNotSorted = getEvenNumbers(array);
+    let oddNotSorted = getOddNumbers(array);
+    let evenSorted = evenNotSorted.sort((a, b) => a - b);
+    let oddSorted = oddNotSorted.sort((a, b) => b - a);
+    let res = evenSorted.concat(oddSorted);
+    return res;
+}
 
-//     return resArray;
-// }
+function getEvenNumbers(array){
+        let res = array.filter(n => n % 2 == 0);
+        return res;
+}
 
-//****************************************Task 4
+    function getOddNumbers(array){
+        let res = array.filter(n => n % 2 != 0);
+        return res;
+}
 
-// let numbers = [1,2,3,4,5,6,7];
-// console.log(move(numbers,3,-1))
 
-// function move(array, index, offset){
-//     let newIndex = offset + index;
-//     let value = array[index];
-//     array.splice(index, 1);
-//     array.splice(newIndex, 0, value);
-//     return array;
-// }

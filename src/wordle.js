@@ -11,12 +11,12 @@ function onChange(event){
     else {
         const wordAr = Array.from(wordGuess);
         if (word == wordGuess) {
-            alert(`красава`)
+            alert(`Congratulations - you have guessed the word`)
         }
         wordAr.forEach((l, i) => letterElements[i].innerHTML = l);
         counter++;
         if (counter >= 5){
-            alert(`пошел нахуй`)
+            alert(`Sorry - your guess trials have ended up`)
         }
         const colors = wordAr.map((l, i) => {
             let index = word.indexOf(l);

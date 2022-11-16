@@ -2,6 +2,7 @@ const word = "apple"
 const N_LETTERS = 5;
 const letterElements = document.querySelectorAll(".letter-guess")
 let counter = 0;
+const alertElement = document.querySelectorAll(".alert-guess")
 
 function onChange(event){
     const wordGuess = event.target.value;
@@ -11,12 +12,12 @@ function onChange(event){
     else {
         const wordAr = Array.from(wordGuess);
         if (word == wordGuess) {
-            alert(`Congratulations - you have guessed the word`)
+            document.getElementById("alert-guess").innerHTML = 'Congratulations - you have guessed the word';
         }
         wordAr.forEach((l, i) => letterElements[i].innerHTML = l);
         counter++;
-        if (counter >= 5){
-            alert(`Sorry - your guess trials have ended up`)
+        if (counter >= 4){
+            document.getElementById("alert-notguess").innerHTML = 'Sorry - your guess trials have ended up';
         }
         const colors = wordAr.map((l, i) => {
             let index = word.indexOf(l);
@@ -27,7 +28,6 @@ function onChange(event){
                     res = 'green'
                 }
             }
-            
             document.getElementById("counter").innerHTML = counter;
             return res;
         })

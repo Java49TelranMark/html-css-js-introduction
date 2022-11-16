@@ -25,3 +25,11 @@ body {
     margin-left: 2vw;
     color: red;
 }
+.alert-guess{
+    font-size: 1.5em;
+    color: green;
+}
+.alert-notguess{
+    font-size: 1.5em;
+    color: red;
+}

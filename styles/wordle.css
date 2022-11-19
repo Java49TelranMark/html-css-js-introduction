@@ -10,6 +10,9 @@ body {
 .letter-guess{
     font-size: 1.5em;
     margin-left: 2vw;
+    background-color: lightgray;
+    width: 3.5vw;
+    text-align: center;
 }
 .red{
     color: red;
@@ -19,17 +22,4 @@ body {
 }
 .yellow{
     color: yellow;
-}
-.counter-guess{
-    font-size: 1.5em;
-    margin-left: 2vw;
-    color: red;
-}
-.alert-guess{
-    font-size: 1.5em;
-    color: green;
-}
-.alert-notguess{
-    font-size: 1.5em;
-    color: red;
 }

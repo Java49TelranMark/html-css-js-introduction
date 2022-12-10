@@ -22,7 +22,7 @@ function onSubmit(event) {
         }, {}
     )
     console.log(book);
-    company.hireEmployee(book);
+    Company.addBook(book);
 }
 
 function onChange(event) {
@@ -64,33 +64,32 @@ function showSection(index) {
     buttonsMenuElement[index].classList.add(ACTIVE);
     sectionsElement[index].hidden = false;
     if (index == 1) {
-        const employees = company.getAllEmployees();
-        employeesListElement.innerHTML = getEmployeeItems(employees);
+        const books = Company.getAllBooks();
+        booksListElement.innerHTML = getBooksItems(books);
     }
 }
 function getBooksItems(books) {
     return books.map (e => 
         `<li class="books-item">
               <div class="books-item-container">
-                 <p class="books-item-paragraph">Name: ${e.employee_name} </p>
-                 <p class="books-item-paragraph">Email: ${e.email} </p>
-                 <p class="books-item-paragraph">Department: ${e.department}</p>
-                 <p class="books-item-paragraph">Bithdate: ${e.birthDate}</p>
-                 <p class="books-item-paragraph">Salary: ${e.salary}</p>
+                 <p class="books-item-paragraph">Title: ${e.book_title} </p>
+                 <p class="books-item-paragraph">Author: ${e.book_author} </p>
+                 <p class="books-item-paragraph">Genre: ${e.book_genre}</p>
+                 <p class="books-item-paragraph">Year: ${e.book_publish_year}</p>
+                 <p class="books-item-paragraph">Pages: ${e.book_pages}</p>
               </div>
           </li>`).join('');
 }
 function Company() {
-    this.employees = [];
+    this.books = [];
 }
-Company.prototype.hireEmployee = function(employee) {
-    employee.salary = +employee.salary;
-    this.employees.push(employee);
+Company.prototype.addBook = function(book) {
+    book.book_title = +book.salary;
+    this.books.push(book);
 }
-Company.prototype.getAllEmployees = function(){
-    return this.employees;
+Company.prototype.getAllBooks = function(){
+    return this.books;
 }
-Company.prototype.getEmployeesBySalary = function(salaryFrom, salaryTo) {
-    //TODO
-    return this.employees.filter(e => e.salary >= salaryFrom && e.salary < salaryTo )
-}
+// Company.prototype.getBooksByYear = function(yearFrom, yearTo) {
+//     return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo )
+// }

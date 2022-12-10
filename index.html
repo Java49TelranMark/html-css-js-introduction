@@ -4,28 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/movies.css">
-    <title>Movies</title>
+    <title>Books</title>
+    <link rel="stylesheet" href="styles/books.css">
 </head>
 <body>
-    <button onclick="show(0)">Show all movie 1</button>
-    <button onclick="show(1)">Best movie</button>
-    <button onclick="show(2)">Worst movie</button>
-    
-    <section hidden>
-        <ul class="movies-list">
-         </ul>
+    <div class="buttons-menu">
+        <button onclick="showSection(0)" class="btn-menu">Add book</button>
+        <button onclick="showSection(1)" class="btn-menu">Show all books</button>
+    </div>
+    <section id="add_book" hidden>
+        <form id = "books_form" onsubmit="onSubmit(event)" class="book_class">
+            <input type ="text" name="book_title" required placeholder="Book title">
+            <input type ="text" name="book_author" required placeholder="Book author">
+            <select name="book_genre" required>
+                <option value hidden selected disabled>
+                    --Select Genre--
+                </option>
+                <option value="detectve">Detective</option>
+                <option value="fantasy">Fanatsy</option>
+                <option value="sci_fi">Sci-Fi</option>
+            </select>
+            <input type="number" name="book_publish_year" placeholder="Book year" onchange="onChange(event)" required>
+            <input type="number" name="book_pages" placeholder="Book pages" onchange="onChange(event)" required>
+
+            <p id="year_error" class="error"></p>
+            <p id="pages_error" class="error"></p>
+
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
     </section>
-    <section hidden>
-        <ul class="best-movie">
+    <section id="show-all-employees" hidden>
+        <ul class="books-list" id="books-all">
         </ul>
     </section>
-
-    <section hidden>
-        <ul class="worst-movie">
-        </ul>
-    </section>
-
-    <script src="src/movies.js"></script>
+    <script src="src/main.js"></script>
 </body>
 </html>

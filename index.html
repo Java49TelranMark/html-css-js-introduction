@@ -11,7 +11,10 @@
     <div class="buttons-menu">
         <button onclick="showSection(0)" class="btn-menu">Add book</button>
         <button onclick="showSection(1)" class="btn-menu">Show all books</button>
+        <button onclick="showSection(2)" class="btn-menu">Show books by year</button>
+        <button onclick="showSection(3)" class="btn-menu">Show books by author</button>
     </div>
+    
     <section id="add_book" hidden>
         <form id = "books_form" onsubmit="onSubmit(event)" class="book_class">
             <input type ="text" name="book_title" required placeholder="Book title">
@@ -36,10 +39,41 @@
             </div>
         </form>
     </section>
+
     <section id="show-all-employees" hidden>
         <ul class="books-list" id="books-all">
         </ul>
     </section>
+
+    <section id="show-books-year" hidden>
+        <form id="year-form" class="form-class" onsubmit="onSubmitYear(event)">
+            <input type="number" name="yearFrom" placeholder="Enter year 'From'" onchange="onChangeYearFrom(event)" required>
+            <input type="number" name="yearTo" placeholder="Enter year 'To'" onchange="onChangeYearTo(event)" required>
+            <div class="buttons">
+                <button type="submit">Search</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <p id="year_form_error" class="error center"></p>
+        <ul class="books-list" id="books-year">
+
+        </ul>
+    </section>
+    
+    <section id="show-books-author" hidden>
+        <form id="author-form" class="form-class" onsubmit="onSubmitAuthor(event)">
+            <input type="text" name="authorForm" placeholder="Enter author" onchange="onChangeAuthor(event)" required>
+            <div class="buttons">
+                <button type="submit">Search</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <p id="year_form_error" class="error center"></p>
+        <ul class="books-list" id="books-year">
+
+        </ul>
+    </section>
+
     <script src="src/main.js"></script>
 </body>
 </html>

@@ -6,11 +6,16 @@ const MAX_PAGES = 2000;
 const ERROR_CLASS = "error";
 const TIME_OUT_ERROR_MESSAGE = 5000;
 const ACTIVE = "active"
+const library = new Library();
 
 const yearErrorElement = document.getElementById("year_error");
 const pagesErrorElement = document.getElementById("pages_error");
 const buttonsMenuElement = document.querySelectorAll(".buttons-menu *");
 const sectionsElement = document.querySelectorAll("section");
+const booksListElement = document.getElementById("books-all");
+const yearFormErrorElement = document.getElementById("year_form_error");
+const booksYearListElement = document.getElementById("books-year");
+const bookAuthorListElement = document.getElementsByName("authorForm")
 
 function onSubmit(event) {
     event.preventDefault();
@@ -22,7 +27,7 @@ function onSubmit(event) {
         }, {}
     )
     console.log(book);
-    Company.addBook(book);
+    library.addBook(book);
 }
 
 function onChange(event) {
@@ -64,7 +69,7 @@ function showSection(index) {
     buttonsMenuElement[index].classList.add(ACTIVE);
     sectionsElement[index].hidden = false;
     if (index == 1) {
-        const books = Company.getAllBooks();
+        const books = library.getAllBooks();
         booksListElement.innerHTML = getBooksItems(books);
     }
 }
@@ -80,16 +85,59 @@ function getBooksItems(books) {
               </div>
           </li>`).join('');
 }
-function Company() {
+function Library() {
     this.books = [];
 }
-Company.prototype.addBook = function(book) {
-    book.book_title = +book.salary;
+Library.prototype.addBook = function(book) {
     this.books.push(book);
 }
-Company.prototype.getAllBooks = function(){
+Library.prototype.getAllBooks = function(){
     return this.books;
 }
-// Company.prototype.getBooksByYear = function(yearFrom, yearTo) {
-//     return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo )
-// }
+Library.prototype.getBooksByYear = function(yearFrom, yearTo) {
+    return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo);
+}
+Library.prototype.getBooksByAuthor = function(author) {
+    console.log(this.books.filter(e => e.book_author === author));
+    return this.books.filter(e => e.book_author === author);
+}
+
+let yearFrom = 0;
+let yearTo = 0;
+function onSubmitYear(event) {
+    event.preventDefault();
+    const books = library.getBooksByYear(yearFrom, yearTo);
+    booksYearListElement.innerHTML = getBooksItems(books);
+}
+
+function onChangeYearFrom(event) {
+    const value = +event.target.value;
+    if (yearFrom && value >= yearTo) {
+        showErrorMessage(event.target, "Year 'from' must be less than year 'to'",
+        yearFormErrorElement);
+    } else {
+        yearFrom = value;
+    }
+}
+function onChangeYearTo(event) {
+    const value = +event.target.value;
+    if (yearTo && value < yearFrom) {
+        showErrorMessage(event.target, "Year 'To' must be greater than year 'From'",
+        yearFormErrorElement);
+    } else {
+        yearTo = value;
+    }
+}
+
+let author = 0;
+function onChangeAuthor(event){
+    const value = event.target.value;
+    author = value;
+}
+
+function onSubmitAuthor(event) {
+    console.log(author);
+    event.preventDefault();
+    const books = library.getBooksByAuthor(author);
+    booksYearListElement.innerHTML = getBooksItems(books);
+}

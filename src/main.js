@@ -1,3 +1,5 @@
+import { Library } from "./data/library.js";
+
 const inputElements = document.querySelectorAll(".book_class [name]");
 const MIN_YEAR = 0;
 const MAX_YEAR = 2022;
@@ -15,7 +17,7 @@ const sectionsElement = document.querySelectorAll("section");
 const booksListElement = document.getElementById("books-all");
 const yearFormErrorElement = document.getElementById("year_form_error");
 const booksYearListElement = document.getElementById("books-year");
-const bookAuthorListElement = document.getElementsByName("authorForm")
+const booksAuthorListElement = document.getElementById("books-author")
 
 function onSubmit(event) {
     event.preventDefault();
@@ -85,22 +87,21 @@ function getBooksItems(books) {
               </div>
           </li>`).join('');
 }
-function Library() {
-    this.books = [];
-}
-Library.prototype.addBook = function(book) {
-    this.books.push(book);
-}
-Library.prototype.getAllBooks = function(){
-    return this.books;
-}
-Library.prototype.getBooksByYear = function(yearFrom, yearTo) {
-    return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo);
-}
-Library.prototype.getBooksByAuthor = function(author) {
-    console.log(this.books.filter(e => e.book_author === author));
-    return this.books.filter(e => e.book_author === author);
-}
+// function Library() {
+//     this.books = [];
+// }
+// Library.prototype.addBook = function(book) {
+//     this.books.push(book);
+// }
+// Library.prototype.getAllBooks = function(){
+//     return this.books;
+// }
+// Library.prototype.getBooksByYear = function(yearFrom, yearTo) {
+//     return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo);
+// }
+// Library.prototype.getBooksByAuthor = function(author) {
+//     return this.books.filter(e => e.book_author === author);
+// }
 
 let yearFrom = 0;
 let yearTo = 0;
@@ -139,5 +140,14 @@ function onSubmitAuthor(event) {
     console.log(author);
     event.preventDefault();
     const books = library.getBooksByAuthor(author);
-    booksYearListElement.innerHTML = getBooksItems(books);
+    console.log(books);
+    booksAuthorListElement.innerHTML = getBooksItems(books);
 }
+
+window.onSubmit = onSubmit;
+window.onChange = onChange;
+window.showSection = showSection;
+window.onChangeYearTo = onChangeYearTo;
+window.onChangeYearFrom = onChangeYearFrom
+window.onSubmitAuthor = onSubmitAuthor
+window.onChangeAuthor = onChangeAuthor

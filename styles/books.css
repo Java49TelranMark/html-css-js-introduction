@@ -1,0 +1,9 @@
+.error{
+    border-color: red;
+    color: red;
+}
+.active{
+    background-color: blue;
+    color: white;
+
+}

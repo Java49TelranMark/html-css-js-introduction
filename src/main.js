@@ -1,69 +1,27 @@
 import { Library } from "./data/library.js";
+import { BookForm } from "./ui/bookform.js";
+import { showErrorMessage } from "./ui/errorMessage.js";
 
-const inputElements = document.querySelectorAll(".book_class [name]");
+
 const MIN_YEAR = 0;
 const MAX_YEAR = 2022;
 const MIN_PAGES = 50;
 const MAX_PAGES = 2000;
-const ERROR_CLASS = "error";
-const TIME_OUT_ERROR_MESSAGE = 5000;
 const ACTIVE = "active"
-const library = new Library();
 
-const yearErrorElement = document.getElementById("year_error");
-const pagesErrorElement = document.getElementById("pages_error");
+const library = new Library();
+const bookForm = new BookForm ({idForm: "book_form", idYearInput: "year_input", 
+idPagesInput: "pages_input", idYearError: "year_error", idPagesError: "pages_error", 
+minYear: MIN_YEAR, maxYear: MAX_YEAR, minPages: MIN_PAGES, maxPages: MAX_PAGES})
+
+bookForm.addSubmitHandler((book) => library.addBook(book));
+
 const buttonsMenuElement = document.querySelectorAll(".buttons-menu *");
 const sectionsElement = document.querySelectorAll("section");
 const booksListElement = document.getElementById("books-all");
 const yearFormErrorElement = document.getElementById("year_form_error");
 const booksYearListElement = document.getElementById("books-year");
 const booksAuthorListElement = document.getElementById("books-author")
-
-function onSubmit(event) {
-    event.preventDefault();
-    console.log("submitted");
-    const book = Array.from(inputElements).reduce(
-        (res, cur) => {
-            res[cur.name] = cur.value;
-            return res;
-        }, {}
-    )
-    console.log(book);
-    library.addBook(book);
-}
-
-function onChange(event) {
-    if (event.target.name == "book_publish_year") {
-        validateYear(event.target)
-    } else if (event.target.name == "book_pages") {
-        validateBookPages(event.target);
-    }
-}
-
-function validateBookPages(element) {
-    const value = +element.value;
-    if (value < MIN_PAGES || value > MAX_PAGES) {
-        const message = `Amount of pages must be between ${MIN_PAGES}  and ${MAX_PAGES}`;
-        showErrorMessage(element, message, pagesErrorElement);
-    }
-}
-
-function validateYear(element) {
-    const value = +element.value;
-    if (value < MIN_YEAR || value > MAX_YEAR) {
-        const message = `Year must be between ${MIN_YEAR}  and ${MAX_YEAR}`;
-        showErrorMessage(element, message, yearErrorElement);
-    }
-}
-function showErrorMessage(element, message, errorElement) {
-    element.classList.add(ERROR_CLASS);
-    errorElement.innerHTML = message;
-    setTimeout(() => {
-        element.classList.remove(ERROR_CLASS);
-        element.value = ''; 
-        errorElement.innerHTML = '';
-    }, TIME_OUT_ERROR_MESSAGE);
-}
 
 function showSection(index) {
     buttonsMenuElement.forEach(e => e.classList.remove(ACTIVE));
@@ -75,6 +33,7 @@ function showSection(index) {
         booksListElement.innerHTML = getBooksItems(books);
     }
 }
+
 function getBooksItems(books) {
     return books.map (e => 
         `<li class="books-item">
@@ -129,8 +88,8 @@ function onSubmitAuthor(event) {
     booksAuthorListElement.innerHTML = getBooksItems(books);
 }
 
-window.onSubmit = onSubmit;
-window.onChange = onChange;
+//window.onSubmit = onSubmit;
+//window.onChange = onChange;
 window.showSection = showSection;
 window.onChangeYearTo = onChangeYearTo;
 window.onChangeYearFrom = onChangeYearFrom

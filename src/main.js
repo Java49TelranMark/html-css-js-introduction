@@ -87,21 +87,6 @@ function getBooksItems(books) {
               </div>
           </li>`).join('');
 }
-// function Library() {
-//     this.books = [];
-// }
-// Library.prototype.addBook = function(book) {
-//     this.books.push(book);
-// }
-// Library.prototype.getAllBooks = function(){
-//     return this.books;
-// }
-// Library.prototype.getBooksByYear = function(yearFrom, yearTo) {
-//     return this.books.filter(e => e.book_publish_year >= yearFrom && e.book_publish_year < yearTo);
-// }
-// Library.prototype.getBooksByAuthor = function(author) {
-//     return this.books.filter(e => e.book_author === author);
-// }
 
 let yearFrom = 0;
 let yearTo = 0;
@@ -151,3 +136,4 @@ window.onChangeYearTo = onChangeYearTo;
 window.onChangeYearFrom = onChangeYearFrom
 window.onSubmitAuthor = onSubmitAuthor
 window.onChangeAuthor = onChangeAuthor
+window.onSubmitYear=onSubmitYear;
